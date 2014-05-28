@@ -3,9 +3,11 @@
 Create a shim set using grunt.
 
 ###List of shims:
+- Array.every
 - Array.filter
 - Array.forEach
 - Array.indexOf
+- Array.some
 - Element.classList
 - Function.bind
 

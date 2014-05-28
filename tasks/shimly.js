@@ -12,6 +12,7 @@ module.exports = function (grunt) {
 
         //Get shimly config from user grunt
         var config = grunt.config.get('shimly');
+        var banner = '/*! \nIncluded shims: ' + config.shim + '\n*/\n\n';
 
         console.log(config.shim);
 
@@ -23,7 +24,6 @@ module.exports = function (grunt) {
         var uglified;
         var dest = path.resolve(config.dest);
         var destDir = path.dirname(dest);
-        var banner = '/*! \nIncluded shims: ' + config.shim + '\n*/\n\n';
 
         if (config.minify) {
             uglified = uglify.minify(config.shim, { output: null, preserveComments: false, compress: {} });
