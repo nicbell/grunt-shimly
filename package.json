@@ -8,7 +8,7 @@
   },
   "main": "Gruntfile.js",
   "bin": {
-    "grunt-shimly": "bin/grunt-shimly"
+    "grunt-shimly": "bin/grunt-shimly.js"
   },
   "engines": {
     "node": ">=0.8.0"
