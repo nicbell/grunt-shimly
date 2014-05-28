@@ -11,7 +11,7 @@ Grunt file config entry:
 // ... 
     shimly: {
       // things you would like to shim
-      // possible options ['Array.filter', 'Array.forEach', Element.classList', 'Function.bind']
+      // possible options ['Array.filter', 'Array.forEach', 'Array.indexOf', Element.classList', 'Function.bind']
       shim: ['Function.bind'],
       // output location (relative to your grunt.js file location)
       dest: 'build/shims.js',
