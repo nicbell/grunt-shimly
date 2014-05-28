@@ -1,0 +1,26 @@
+{
+  "name": "grunt-shimly",
+  "version": "0.0.1",
+  "author": "Nic Bell",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nicbell/shimly.git"
+  },
+  "main": "Gruntfile.js",
+  "bin": {
+    "grunt-shimly": "bin/grunt-shimly"
+  },
+  "engines": {
+    "node": ">=0.8.0"
+  },
+  "dependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "uglify-js": "^2.4.0",
+    "node-fs": "~0.1.7",
+    "path": "~0.4.9"
+  },
+  "keywords": [
+    "gruntplugin", "shim", "browser"
+  ]
+}
