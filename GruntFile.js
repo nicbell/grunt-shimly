@@ -1,3 +1,8 @@
+/*
+ * grunt-shimly
+ * https://github.com/nicbell/Shimly
+ */
+
 'use strict';
 
 module.exports = function (grunt) {
@@ -11,16 +16,6 @@ module.exports = function (grunt) {
 	        'Build @ <%= grunt.template.today("yyyy-mm-dd") %>\n' +
 	        '<%= pkg.repository.url %>\n' +
 	        '.*/'
-	    },
-
-	   	watch: {
-	      scripts: {
-	        files: '<%= jshint.files %>',
-	        tasks: 'default',
-	        options: {
-	        	interrupt: true
-	        }
-	      }
 	    },
 
         //JS hint is very relaxed because all the shims are written in different styles
@@ -64,9 +59,10 @@ module.exports = function (grunt) {
         }
     });
 
-	grunt.loadNpmTasks('grunt-contrib-jshint');
-	grunt.loadNpmTasks('grunt-contrib-watch');
+	grunt.loadTasks('tasks');
 
-	grunt.registerTask('default', ['jshint:files']);
+	grunt.loadNpmTasks('grunt-contrib-jshint');
+
+	grunt.registerTask('test', ['jshint:files']);
 	//grunt.registerTask('travis', 'default');
 };

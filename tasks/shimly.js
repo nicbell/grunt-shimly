@@ -1,24 +1,34 @@
-/**/
+/*
+ * grunt-shimly
+ * https://github.com/nicbell/Shimly
+ */
+
+'use strict';
 
 module.exports = function (grunt) {
-    'use strict';
 
-    grunt.registerTask('shimly', 'Builds a set of shims', function (mode) {
+    //load requires
+    var uglify = require('uglify-js'),
+        fs = require('fs'),
+        path = require('path');
 
-        //load requires
-        var uglify = require('uglify-js');
-        var fs = require('fs');
-        var path = require('path');
 
-        //Get shimly config from user grunt
-        var config = grunt.config.get('shimly');
-        var banner = '/*! \nIncluded shims: ' + config.shim + '\n*/\n\n';
+    //Tasks
+    grunt.registerTask('shimly', 'Builds a set of shims', function () {
+        createShims(grunt.config.get('shimly'));
+    });
 
-        console.log(config.shim);
 
-        //Convert config into paths
-        for (var i = 0; i < config.shim.length; i++) {
-            config.shim[i] = path.normalize(__dirname + '/../src/' + config.shim[i] + '.js');
+    //Create shims
+    var createShims = function (config) {
+        var files = config.shim,
+            banner = '/*! \nIncluded shims: ' + files + '\n*/\n\n';
+
+        grunt.log.writeln(files);
+
+        //Convert files into paths
+        for (var i = 0; i < files.length; i++) {
+            files[i] = path.normalize(__dirname + '/../src/' + files[i] + '.js');
         }
 
         var uglified;
@@ -26,10 +36,9 @@ module.exports = function (grunt) {
         var destDir = path.dirname(dest);
 
         if (config.minify) {
-            uglified = uglify.minify(config.shim, { output: null, preserveComments: false, compress: {} });
-        }
-        else {
-            uglified = uglify.minify(config.shim, { output: { comments: true, beautify: true }, compress: null });
+            uglified = uglify.minify(files, { output: null, preserveComments: false, compress: {} });
+        } else {
+            uglified = uglify.minify(files, { output: { comments: true, beautify: true }, compress: null });
         }
 
         if (!fs.existsSync(destDir)) {
@@ -37,6 +46,6 @@ module.exports = function (grunt) {
         }
         fs.writeFileSync(dest, banner + uglified.code);
 
-        console.log('Shims created at: ' + dest);
-    });
+        grunt.log.writeln('Shims created at: ' + dest);
+    };
 };

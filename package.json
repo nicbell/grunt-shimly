@@ -1,21 +1,17 @@
 {
   "name": "grunt-shimly",
-  "version": "0.0.5",
+  "description": "Create a shim set using grunt.",
+  "version": "0.0.6",
   "author": "Nic Bell",
   "repository": {
     "type": "git",
     "url": "https://github.com/nicbell/shimly.git"
   },
   "main": "Gruntfile.js",
-  "bin": {
-    "grunt-shimly": "bin/grunt-shimly.js"
-  },
   "engines": {
     "node": ">=0.8.0"
   },
   "dependencies": {
-    "grunt": "~0.4.5",
-    "grunt-contrib-watch": "~0.6.1",
     "uglify-js": "~2.4.13",
     "node-fs": "~0.1.7",
     "path": "~0.4.9"
@@ -23,6 +19,9 @@
   "devDependencies": {
     "grunt": "~0.4.5",
     "grunt-contrib-jshint": "~0.10.0"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.5"
   },
   "keywords": [
     "gruntplugin", "shim", "browser"
