@@ -14,7 +14,7 @@ Create a JavaScript shim set using grunt.
 - **JSON** (JSON.stringify and JSON.parse - [Douglas Crockford's JSON 2](https://github.com/douglascrockford/JSON-js))
 - **localStorage** (localStorage and sessionStorage polyfill via cookies - [Remy Sharp's Gist](https://gist.github.com/remy/350433))
 - **requestAnimationFrame** (requestAnimationFrame polyfill [Paul Irish's Gist](https://gist.github.com/paulirish/1579671))
-- **EventTarget.addEventListener** (addEventListener polyfill – [Eirik Backer Gist](https://gist.github.com/eirikbacker/2864711))
+- **EventListener** (EventListener polyfill – [Jonathan Neal](https://github.com/jonathantneal/EventListener))
 - **Document.getElementsByClassName** (getElementsByClassName polyfill – [SitePoint](http://www.sitepoint.com/5-useful-functions-missing-in-javascript/))
 
 ###Usage:
