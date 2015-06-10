@@ -3,7 +3,7 @@
 Create a JavaScript shim set using grunt.
 
 ###List of shims:
-[shimly](https://github.com/nicbell/shimly)
+[See shimly](https://github.com/nicbell/shimly)
 
 ###Usage:
 
