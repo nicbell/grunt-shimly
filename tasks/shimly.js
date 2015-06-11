@@ -17,6 +17,6 @@ module.exports = function (grunt) {
 
     //Create shims
     var createShims = function (config) {
-        shimly(config.shim, config.minify, config.dest);
+        shimly.shim(config.shim, config.minify, config.dest);
     };
 };
