@@ -1,7 +1,7 @@
 {
   "name": "grunt-shimly",
   "description": "Create a shim set using grunt.",
-  "version": "0.0.11",
+  "version": "1.0.0",
   "author": "Nic Bell",
   "repository": {
     "type": "git",
@@ -22,6 +22,8 @@
     "grunt": "~0.4.5"
   },
   "keywords": [
-    "gruntplugin", "shim", "browser"
+    "gruntplugin",
+    "shim",
+    "browser"
   ]
 }
