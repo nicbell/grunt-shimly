@@ -1,4 +1,4 @@
-#grunt-shimly [![dependency Status](https://david-dm.org/nicbell/grunt-shimly/status.png)](https://david-dm.org/nicbell/grunt-shimly#info=dependencies) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+#grunt-shimly [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/) [![dependency Status](https://david-dm.org/nicbell/grunt-shimly/status.png)](https://david-dm.org/nicbell/grunt-shimly#info=dependencies) [![Downloads](https://img.shields.io/npm/dt/grunt-shimly.svg)](https://www.npmjs.com/package/grunt-shimly)
 
 Create a JavaScript shim set using grunt.
 
