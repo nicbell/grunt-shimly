@@ -18,7 +18,7 @@ module.exports = function (grunt) {
 	        '.*/'
 	    },
 
-        //JS hint is very relaxed because all the shims are written in different styles
+        // JS hint is very relaxed because all the shims are written in different styles
 	    jshint: {
             options: {
                 globals: { JSON: true },
@@ -64,5 +64,4 @@ module.exports = function (grunt) {
 	grunt.loadNpmTasks('grunt-contrib-jshint');
 
 	grunt.registerTask('test', ['jshint:files']);
-	//grunt.registerTask('travis', 'default');
 };
