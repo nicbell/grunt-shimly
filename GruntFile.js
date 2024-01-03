@@ -7,19 +7,19 @@
 
 module.exports = function (grunt) {
 
-	// Project configuration.
-	grunt.initConfig({
-	    pkg: grunt.file.readJSON('package.json'),
-	    meta: {
-	      banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %>\n' +
-	        '------------------------------\n' +
-	        'Build @ <%= grunt.template.today("yyyy-mm-dd") %>\n' +
-	        '<%= pkg.repository.url %>\n' +
-	        '.*/'
-	    },
+    // Project configuration.
+    grunt.initConfig({
+        pkg: grunt.file.readJSON('package.json'),
+        meta: {
+            banner: '/*! <%= pkg.title || pkg.name %> - v<%= pkg.version %>\n' +
+                '------------------------------\n' +
+                'Build @ <%= grunt.template.today("yyyy-mm-dd") %>\n' +
+                '<%= pkg.repository.url %>\n' +
+                '.*/'
+        },
 
-        //JS hint is very relaxed because all the shims are written in different styles
-	    jshint: {
+        // JS hint is very relaxed because all the shims are written in different styles
+        jshint: {
             options: {
                 globals: { JSON: true },
                 browser: true,
@@ -59,10 +59,23 @@ module.exports = function (grunt) {
         }
     });
 
-	grunt.loadTasks('tasks');
+    grunt.loadTasks('tasks');
 
-	grunt.loadNpmTasks('grunt-contrib-jshint');
+    grunt.loadNpmTasks('grunt-contrib-jshint');
 
-	grunt.registerTask('test', ['jshint:files']);
-	//grunt.registerTask('travis', 'default');
+    grunt.registerTask('test-config', 'Adds test config for shimly', function () {
+        grunt.initConfig({
+            shimly: {
+                shim: ['Array.filter', 'Function.bind', 'localStorage'],
+                dest: 'build/shims.js',
+                minify: true
+            }
+        })
+    })
+    grunt.registerTask('test-verify', 'Verifies build', function () {
+        if (!require('fs').existsSync('build/shims.js')) {
+            grunt.fail.fatal("Failed to create shims!")
+        }
+    })
+    grunt.registerTask('test', ['jshint:files', 'test-config', 'shimly', 'test-verify']);
 };
