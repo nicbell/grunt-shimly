@@ -63,7 +63,7 @@ module.exports = function (grunt) {
 
     grunt.loadNpmTasks('grunt-contrib-jshint');
 
-    grunt.registerTask('test-shimly', 'Task to test shimly output.', function () {
+    grunt.registerTask('test-config', 'Adds test config for shimly', function () {
         grunt.initConfig({
             shimly: {
                 shim: ['Array.filter', 'Function.bind', 'localStorage'],
@@ -71,11 +71,11 @@ module.exports = function (grunt) {
                 minify: true
             }
         })
-        grunt.task.run('shimly')
-
+    })
+    grunt.registerTask('test-verify', 'Verifies build', function () {
         if (!require('fs').existsSync('build/shims.js')) {
             grunt.fail.fatal("Failed to create shims!")
         }
     })
-    grunt.registerTask('test', ['jshint:files', 'test-shimly']);
+    grunt.registerTask('test', ['jshint:files', 'test-config', 'shimly', 'test-verify']);
 };
